@@ -1,0 +1,381 @@
+<odoo>
+
+    <!-- =========================================================
+         FORMULARIO DE EQUIPO
+         ========================================================= -->
+
+    <record id="view_equipment_form_sr_it" model="ir.ui.view">
+        <field name="name">maintenance.equipment.form.sr.it</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Código de activo -->
+            <field name="name" position="before">
+                <field name="sr_asset_code"
+                       readonly="1"
+                       placeholder="Se genera al seleccionar categoría"/>
+            </field>
+
+            <!-- Marca y hostname -->
+            <field name="model" position="after">
+                <field name="sr_brand_id"/>
+                <field name="sr_hostname"/>
+            </field>
+
+            <!-- Clasificación del activo -->
+            <field name="category_id" position="after">
+                <field name="sr_physical_state_id"/>
+                <field name="sr_operational_state_id"/>
+                <field name="sr_condition_id"/>
+                <field name="sr_ownership_type_id"/>
+            </field>
+
+
+            <!-- =================================================
+                 PESTAÑAS DE ACTIVOS TI
+                 ================================================= -->
+
+            <notebook position="inside">
+
+
+                <!-- =============================================
+                     INFORMACIÓN TÉCNICA
+                     ============================================= -->
+
+                <page string="Información técnica"
+                      name="sr_technical_info">
+
+                    <field name="sr_attribute_value_ids"
+                           nolabel="1"
+                           readonly="0">
+
+                        <!-- Lista resumen -->
+                        <list create="0" delete="0">
+
+                            <field name="profile_id"
+                                   string="Perfil"
+                                   readonly="1"/>
+
+                            <field name="attribute_id"
+                                   string="Atributo"
+                                   readonly="1"/>
+
+                            <field name="value_display"
+                                   string="Valor"
+                                   readonly="1"/>
+
+                            <field name="uom_id"
+                                   string="Unidad"
+                                   readonly="1"/>
+
+                        </list>
+
+
+                        <!-- Formulario para capturar valor -->
+                        <form string="Información técnica">
+
+                            <sheet>
+
+                                <!-- Campo técnico usado para
+                                     controlar la visibilidad -->
+                                <field name="value_type"
+                                       invisible="1"/>
+
+
+                                <!-- Información del atributo -->
+                                <group>
+
+                                    <group>
+
+                                        <field name="profile_id"
+                                               string="Perfil"
+                                               readonly="1"/>
+
+                                        <field name="attribute_id"
+                                               string="Atributo"
+                                               readonly="1"/>
+
+                                    </group>
+
+                                    <group>
+
+                                        <field name="uom_id"
+                                               string="Unidad"
+                                               readonly="1"/>
+
+                                    </group>
+
+                                </group>
+
+
+                                <!-- =================================
+                                     VALOR DEL ATRIBUTO
+                                     ================================= -->
+
+                                <group string="Valor">
+
+                                    <!-- Texto corto -->
+                                    <field name="value_char"
+                                           string="Valor"
+                                           invisible="value_type != 'char'"/>
+
+                                    <!-- Texto largo -->
+                                    <field name="value_text"
+                                           string="Valor"
+                                           invisible="value_type != 'text'"/>
+
+                                    <!-- Número entero -->
+                                    <field name="value_integer"
+                                           string="Valor"
+                                           invisible="value_type != 'integer'"/>
+
+                                    <!-- Número decimal -->
+                                    <field name="value_float"
+                                           string="Valor"
+                                           invisible="value_type != 'float'"/>
+
+                                    <!-- Sí / No -->
+                                    <field name="value_boolean"
+                                           string="Valor"
+                                           invisible="value_type != 'boolean'"/>
+
+                                    <!-- Fecha -->
+                                    <field name="value_date"
+                                           string="Valor"
+                                           invisible="value_type != 'date'"/>
+
+                                    <!-- Lista configurable -->
+                                    <field name="option_id"
+                                           string="Valor"
+                                           invisible="value_type != 'selection'"
+                                           domain="[('attribute_id', '=', attribute_id)]"/>
+
+                                </group>
+
+                            </sheet>
+
+                        </form>
+
+                    </field>
+
+                </page>
+
+
+                <!-- =============================================
+                     COMPONENTES
+                     ============================================= -->
+
+                <page string="Componentes"
+                      name="sr_components">
+
+                    <field name="sr_component_ids"
+                           nolabel="1">
+
+                        <list editable="bottom">
+
+                            <field name="component_type_id"/>
+
+                            <field name="brand_id"/>
+
+                            <field name="model"/>
+
+                            <field name="serial_no"/>
+
+                            <field name="physical_state_id"/>
+
+                            <field name="operational_state_id"/>
+
+                            <field name="include_on_responsiva"/>
+
+                        </list>
+
+                    </field>
+
+                </page>
+
+
+                <!-- =============================================
+                     RED
+                     ============================================= -->
+
+                <page string="Red"
+                      name="sr_network">
+
+                    <field name="sr_network_interface_ids"
+                           nolabel="1">
+
+                        <list editable="bottom">
+
+                            <field name="interface_type_id"/>
+
+                            <field name="name"/>
+
+                            <field name="mac_address"/>
+
+                            <field name="ip_address"/>
+
+                            <field name="dhcp"/>
+
+                            <field name="notes"
+                                   optional="hide"/>
+
+                        </list>
+
+                    </field>
+
+                </page>
+
+
+                <!-- =============================================
+                     CONTROL TI
+                     ============================================= -->
+
+                <page string="Control TI"
+                      name="sr_it_control">
+
+                    <group>
+
+                        <group>
+
+                            <field name="sr_document_state"/>
+
+                            <field name="sr_last_verified"
+                                   readonly="1"/>
+
+                            <field name="sr_verified_by"
+                                   readonly="1"/>
+
+                            <field name="sr_vault_ref"/>
+
+                        </group>
+
+                        <group>
+
+                            <field name="sr_is_assigned"
+                                   readonly="1"/>
+
+                        </group>
+
+                    </group>
+
+                    <field name="sr_it_notes"
+                           placeholder="Observaciones técnicas; nunca contraseñas o secretos."/>
+
+                    <button name="action_sr_verify"
+                            type="object"
+                            string="Verificar activo"
+                            class="btn-primary"
+                            groups="sr_it_assets.group_sr_it_asset_user"/>
+
+                </page>
+
+            </notebook>
+
+        </field>
+
+    </record>
+
+
+    <!-- =========================================================
+         VISTA DE LISTA
+         ========================================================= -->
+
+    <record id="view_equipment_list_sr_it" model="ir.ui.view">
+
+        <field name="name">maintenance.equipment.list.sr.it</field>
+
+        <field name="model">maintenance.equipment</field>
+
+        <field name="inherit_id"
+               ref="maintenance.hr_equipment_view_tree"/>
+
+        <field name="arch"
+               type="xml">
+
+            <field name="name"
+                   position="before">
+
+                <field name="sr_asset_code"
+                       optional="show"/>
+
+            </field>
+
+            <field name="category_id"
+                   position="after">
+
+                <field name="sr_brand_id"
+                       optional="show"/>
+
+                <field name="sr_physical_state_id"
+                       optional="show"/>
+
+                <field name="sr_operational_state_id"
+                       optional="show"/>
+
+                <field name="sr_condition_id"
+                       optional="show"/>
+
+                <field name="sr_document_state"
+                       optional="show"/>
+
+            </field>
+
+        </field>
+
+    </record>
+
+
+    <!-- =========================================================
+         VISTA KANBAN
+         ========================================================= -->
+
+    <record id="view_equipment_kanban_sr_it" model="ir.ui.view">
+
+        <field name="name">maintenance.equipment.kanban.sr.it</field>
+
+        <field name="model">maintenance.equipment</field>
+
+        <field name="inherit_id"
+               ref="maintenance.hr_equipment_view_kanban"/>
+
+        <field name="arch"
+               type="xml">
+
+            <!-- Campos necesarios para renderizar el Kanban -->
+            <xpath expr="//kanban"
+                   position="inside">
+
+                <field name="sr_asset_code"/>
+
+                <field name="sr_is_assigned"/>
+
+            </xpath>
+
+
+            <!-- Identificación visual del activo -->
+            <xpath expr="//templates//field[@name='name']"
+                   position="before">
+
+                <!-- Código del activo -->
+                <div class="fw-bold text-primary">
+                    <field name="sr_asset_code"/>
+                </div>
+
+                <!-- Estado de asignación -->
+                <div class="mb-1"
+                     invisible="not sr_is_assigned">
+
+                    <span class="badge text-bg-success">
+                        ASIGNADO
+                    </span>
+
+                </div>
+
+            </xpath>
+
+        </field>
+
+    </record>
+
+</odoo>

@@ -1,0 +1,74 @@
+<odoo noupdate="1">
+    <record id="physical_excellent" model="sr.asset.physical.state"><field name="name">Excelente</field><field name="sequence">10</field></record>
+    <record id="physical_good" model="sr.asset.physical.state"><field name="name">Bueno</field><field name="sequence">20</field></record>
+    <record id="physical_regular" model="sr.asset.physical.state"><field name="name">Regular</field><field name="sequence">30</field></record>
+    <record id="physical_bad" model="sr.asset.physical.state"><field name="name">Malo</field><field name="sequence">40</field></record>
+    <record id="physical_damaged" model="sr.asset.physical.state"><field name="name">Dañado</field><field name="sequence">50</field></record>
+    <record id="physical_unknown" model="sr.asset.physical.state"><field name="name">No determinado</field><field name="sequence">60</field></record>
+
+    <record id="operational_working" model="sr.asset.operational.state"><field name="name">Funciona</field></record>
+    <record id="operational_faults" model="sr.asset.operational.state"><field name="name">Funciona con fallas</field><field name="sequence">20</field></record>
+    <record id="operational_not_working" model="sr.asset.operational.state"><field name="name">No funciona</field><field name="sequence">30</field></record>
+    <record id="operational_untested" model="sr.asset.operational.state"><field name="name">No probado</field><field name="sequence">40</field></record>
+
+    <record id="condition_available" model="sr.asset.condition"><field name="name">Disponible</field></record>
+    <record id="condition_assigned" model="sr.asset.condition"><field name="name">Asignado</field><field name="sequence">20</field></record>
+    <record id="condition_shared" model="sr.asset.condition"><field name="name">En uso compartido</field><field name="sequence">30</field></record>
+    <record id="condition_stored" model="sr.asset.condition"><field name="name">Almacenado</field><field name="sequence">40</field></record>
+    <record id="condition_repair" model="sr.asset.condition"><field name="name">En reparación</field><field name="sequence">50</field></record>
+    <record id="condition_disposal_proposed" model="sr.asset.condition"><field name="name">Baja propuesta</field><field name="sequence">60</field></record>
+    <record id="condition_disposal" model="sr.asset.condition"><field name="name">Baja autorizada</field><field name="sequence">70</field></record>
+    <record id="condition_unknown" model="sr.asset.condition"><field name="name">Desconocido</field><field name="sequence">80</field></record>
+
+    <record id="ownership_owned" model="sr.asset.ownership.type"><field name="name">Propio</field></record>
+    <record id="ownership_leased" model="sr.asset.ownership.type"><field name="name">Arrendado</field><field name="sequence">20</field></record>
+    <record id="ownership_loan" model="sr.asset.ownership.type"><field name="name">Comodato</field><field name="sequence">30</field></record>
+    <record id="ownership_unknown" model="sr.asset.ownership.type"><field name="name">Desconocido</field><field name="sequence">40</field></record>
+
+    <record id="component_charger" model="sr.asset.component.type"><field name="name">Cargador / Eliminador</field></record>
+    <record id="component_dock" model="sr.asset.component.type"><field name="name">Docking station</field><field name="sequence">20</field></record>
+    <record id="component_battery" model="sr.asset.component.type"><field name="name">Batería removible</field><field name="sequence">30</field></record>
+    <record id="component_adapter" model="sr.asset.component.type"><field name="name">Adaptador</field><field name="sequence">40</field></record>
+
+    <record id="interface_ethernet" model="sr.asset.interface.type"><field name="name">Ethernet</field></record>
+    <record id="interface_wifi" model="sr.asset.interface.type"><field name="name">WiFi</field><field name="sequence">20</field></record>
+    <record id="interface_sfp" model="sr.asset.interface.type"><field name="name">SFP</field><field name="sequence">30</field></record>
+    <record id="interface_sfp_plus" model="sr.asset.interface.type"><field name="name">SFP+</field><field name="sequence">40</field></record>
+    <record id="interface_fiber" model="sr.asset.interface.type"><field name="name">Fibra</field><field name="sequence">50</field></record>
+    <record id="interface_wan" model="sr.asset.interface.type"><field name="name">WAN</field><field name="sequence">60</field></record>
+    <record id="interface_lan" model="sr.asset.interface.type"><field name="name">LAN</field><field name="sequence">70</field></record>
+
+    <record id="uom_gb" model="sr.asset.uom"><field name="name">Gigabytes</field><field name="symbol">GB</field></record>
+    <record id="uom_tb" model="sr.asset.uom"><field name="name">Terabytes</field><field name="symbol">TB</field></record>
+    <record id="uom_in" model="sr.asset.uom"><field name="name">Pulgadas</field><field name="symbol">in</field></record>
+    <record id="uom_w" model="sr.asset.uom"><field name="name">Watts</field><field name="symbol">W</field></record>
+    <record id="uom_va" model="sr.asset.uom"><field name="name">Volt-amperes</field><field name="symbol">VA</field></record>
+    <record id="uom_dpi" model="sr.asset.uom"><field name="name">DPI</field><field name="symbol">DPI</field></record>
+
+    <record id="profile_compute" model="sr.asset.profile"><field name="name">Cómputo</field><field name="code">COMPUTO</field></record>
+    <record id="profile_portable" model="sr.asset.profile"><field name="name">Portátil</field><field name="code">PORTATIL</field></record>
+    <record id="profile_display" model="sr.asset.profile"><field name="name">Pantalla</field><field name="code">PANTALLA</field></record>
+    <record id="profile_network" model="sr.asset.profile"><field name="name">Red</field><field name="code">RED</field></record>
+    <record id="profile_print" model="sr.asset.profile"><field name="name">Impresión</field><field name="code">IMPRESION</field></record>
+    <record id="profile_label" model="sr.asset.profile"><field name="name">Etiquetado</field><field name="code">ETIQUETADO</field></record>
+    <record id="profile_mobile" model="sr.asset.profile"><field name="name">Móvil</field><field name="code">MOVIL</field></record>
+    <record id="profile_energy" model="sr.asset.profile"><field name="name">Energía</field><field name="code">ENERGIA</field></record>
+    <record id="profile_cctv" model="sr.asset.profile"><field name="name">CCTV</field><field name="code">CCTV</field></record>
+    <record id="profile_switch" model="sr.asset.profile"><field name="name">Switch</field><field name="code">SWITCH</field></record>
+    <record id="profile_ap" model="sr.asset.profile"><field name="name">Access Point</field><field name="code">AP</field></record>
+    <record id="profile_router" model="sr.asset.profile"><field name="name">Router / Módem</field><field name="code">ROUTER</field></record>
+    <record id="profile_firewall" model="sr.asset.profile"><field name="name">Firewall</field><field name="code">FIREWALL</field></record>
+    <record id="profile_phone" model="sr.asset.profile"><field name="name">Telefonía</field><field name="code">TELEFONIA</field></record>
+    <record id="profile_bio" model="sr.asset.profile"><field name="name">Biométrico</field><field name="code">BIOMETRICO</field></record>
+    <record id="profile_server" model="sr.asset.profile"><field name="name">Servidor</field><field name="code">SERVIDOR</field></record>
+    <record id="profile_storage" model="sr.asset.profile"><field name="name">Almacenamiento</field><field name="code">ALMACENAMIENTO</field></record>
+
+    <record id="attr_cpu" model="sr.asset.attribute"><field name="name">Procesador</field><field name="profile_id" ref="profile_compute"/><field name="value_type">char</field><field name="required_for_verification">1</field><field name="highlighted">1</field></record>
+    <record id="attr_ram" model="sr.asset.attribute"><field name="name">RAM total</field><field name="profile_id" ref="profile_compute"/><field name="value_type">float</field><field name="uom_id" ref="uom_gb"/><field name="required_for_verification">1</field><field name="highlighted">1</field><field name="sequence">20</field></record>
+    <record id="attr_os" model="sr.asset.attribute"><field name="name">Sistema operativo</field><field name="profile_id" ref="profile_compute"/><field name="value_type">char</field><field name="sequence">30</field></record>
+    <record id="attr_os_version" model="sr.asset.attribute"><field name="name">Versión SO</field><field name="profile_id" ref="profile_compute"/><field name="value_type">char</field><field name="sequence">40</field></record>
+    <record id="attr_bios" model="sr.asset.attribute"><field name="name">Versión BIOS</field><field name="profile_id" ref="profile_compute"/><field name="value_type">char</field><field name="sequence">50</field></record>
+    <record id="attr_screen_size" model="sr.asset.attribute"><field name="name">Tamaño de pantalla</field><field name="profile_id" ref="profile_display"/><field name="value_type">float</field><field name="uom_id" ref="uom_in"/><field name="sequence">10</field></record>
+    <record id="attr_resolution" model="sr.asset.attribute"><field name="name">Resolución</field><field name="profile_id" ref="profile_display"/><field name="value_type">char</field><field name="sequence">20</field></record>
+    <record id="attr_ups_va" model="sr.asset.attribute"><field name="name">Capacidad</field><field name="profile_id" ref="profile_energy"/><field name="value_type">float</field><field name="uom_id" ref="uom_va"/></record>
+</odoo>

@@ -1,0 +1,49 @@
+<odoo>
+    <record id="view_equipment_category_form_sr_it" model="ir.ui.view">
+        <field name="name">maintenance.equipment.category.form.sr.it</field>
+        <field name="model">maintenance.equipment.category</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_category_view_form"/>
+
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet" position="inside">
+
+                <group string="Configuración de Activos TI">
+
+                    <group>
+                        <field name="sr_prefix"
+                               string="Prefijo SR"
+                               placeholder="LAP"/>
+
+                        <field name="sr_profile_ids"
+                               string="Perfiles técnicos"
+                               widget="many2many_tags"/>
+                    </group>
+
+                    <group>
+                        <field name="sr_serial_required"
+                               string="Serie requerida"/>
+
+                        <field name="sr_allow_assignment"
+                               string="Permitir asignación"/>
+
+                        <field name="sr_allow_components"
+                               string="Permitir componentes"/>
+                    </group>
+
+                </group>
+
+                <group string="Control de folios"
+                       groups="base.group_system">
+
+                    <field name="sr_sequence_id"
+                           string="Secuencia SR"
+                           readonly="1"/>
+
+                </group>
+
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

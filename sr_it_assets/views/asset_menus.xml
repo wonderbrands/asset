@@ -1,0 +1,33 @@
+<odoo>
+    <menuitem id="menu_sr_it_config_root" name="Gestión de Activos TI" parent="maintenance.menu_maintenance_configuration" sequence="90"/>
+    <menuitem id="menu_sr_profiles"
+          name="Perfiles técnicos"
+          parent="menu_sr_it_config_root"
+          action="action_sr_profiles"
+          sequence="10"/>
+
+<menuitem id="menu_sr_attributes"
+          name="Atributos técnicos"
+          parent="menu_sr_it_config_root"
+          action="action_sr_attributes"
+          sequence="20"/>
+
+<menuitem id="menu_sr_attribute_options"
+          name="Opciones de atributos"
+          parent="menu_sr_it_config_root"
+          action="action_sr_attribute_options"
+          sequence="25"/>
+
+<menuitem id="menu_sr_physical"
+          name="Estados físicos"
+          parent="menu_sr_it_config_root"
+          action="action_sr_physical"
+          sequence="30"/>
+    <menuitem id="menu_sr_operational" name="Estados operativos" parent="menu_sr_it_config_root" action="action_sr_operational" sequence="40"/>
+    <menuitem id="menu_sr_condition" name="Condiciones" parent="menu_sr_it_config_root" action="action_sr_condition" sequence="50"/>
+    <menuitem id="menu_sr_ownership" name="Tipos de propiedad" parent="menu_sr_it_config_root" action="action_sr_ownership" sequence="60"/>
+    <menuitem id="menu_sr_brands" name="Marcas" parent="menu_sr_it_config_root" action="action_sr_brands" sequence="70"/>
+    <menuitem id="menu_sr_component_types" name="Tipos de componentes" parent="menu_sr_it_config_root" action="action_sr_component_types" sequence="80"/>
+    <menuitem id="menu_sr_interface_types" name="Tipos de interfaz" parent="menu_sr_it_config_root" action="action_sr_interface_types" sequence="90"/>
+    <menuitem id="menu_sr_uom" name="Unidades técnicas" parent="menu_sr_it_config_root" action="action_sr_uom" sequence="100"/>
+</odoo>

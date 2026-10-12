@@ -1,0 +1,20 @@
+{
+    'name': 'Somos Reyes - Activos TI',
+    'version': '18.0.1.0.0',
+    'summary': 'Gestión configurable de activos tecnológicos sobre Mantenimiento',
+    'category': 'Maintenance',
+    'author': 'Somos Reyes',
+    'license': 'LGPL-3',
+    'depends': ['maintenance', 'hr_maintenance', 'stock'],
+    'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'data/asset_catalog_data.xml',
+        'views/maintenance_equipment_views.xml',
+        'views/maintenance_category_views.xml',
+        'views/asset_configuration_views.xml',
+        'views/asset_menus.xml',
+    ],
+    'application': False,
+    'installable': True,
+}
